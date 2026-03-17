@@ -1,0 +1,30 @@
+/* Keep full-page background image stable */
+body {
+  background-attachment: fixed !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+#web_bg {
+  background-position: center center !important;
+  background-size: cover !important;
+  filter: saturate(0.92) brightness(0.9);
+}
+
+#body-wrap {
+  background: transparent !important;
+}
+
+/* Improve readability on image background */
+[data-theme="light"] .layout > div:not(.recent-posts),
+[data-theme="light"] #recent-posts .recent-post-item,
+[data-theme="light"] #aside-content .card-widget {
+  background: rgba(252, 252, 250, 0.9) !important;
+}
+
+[data-theme="dark"] .layout > div:not(.recent-posts),
+[data-theme="dark"] #recent-posts .recent-post-item,
+[data-theme="dark"] #aside-content .card-widget {
+  background: rgba(21, 26, 33, 0.82) !important;
+}
