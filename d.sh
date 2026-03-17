@@ -7,25 +7,35 @@
 echo "🚀 开始 Hexo 部署流程..."
 echo ""
 
-# 步骤0：确保 ssh-agent 与密钥就绪
-echo "🔑 步骤 0/3: 检查 SSH Agent..."
+echo "🔑 步骤 0/3: 检查 SSH Agent（可选）..."
 AGENT_STARTED=0
+GITHUB_KEY="$HOME/.ssh/id_ed25519"
+GITHUB_PUB="$HOME/.ssh/id_ed25519.pub"
 if ! ssh-add -l >/dev/null 2>&1; then
     eval "$(ssh-agent -s)" >/dev/null
     AGENT_STARTED=1
-    if [[ "$(uname)" == "Darwin" ]]; then
-        ssh-add --apple-use-keychain ~/.ssh/id_ed25519 >/dev/null
-    else
-        ssh-add ~/.ssh/id_ed25519 >/dev/null
-    fi
-    if [ $? -ne 0 ]; then
-        echo "❌ 加载 SSH 密钥失败，请手动执行 ssh-add"
-        [ $AGENT_STARTED -eq 1 ] && ssh-agent -k >/dev/null 2>&1
-        exit 1
-    fi
-    echo "✅ 已启动 ssh-agent 并加载密钥"
+    echo "✅ 已启动 ssh-agent"
 else
     echo "✅ 已检测到可用的 SSH 密钥"
+fi
+
+if [ -f "$GITHUB_KEY" ]; then
+    if [[ "$(uname)" == "Darwin" ]]; then
+        ssh-add --apple-use-keychain "$GITHUB_KEY" >/dev/null 2>&1 || ssh-add "$GITHUB_KEY" >/dev/null 2>&1
+    else
+        ssh-add "$GITHUB_KEY" >/dev/null 2>&1
+    fi
+fi
+
+if [ -f "$GITHUB_PUB" ]; then
+    GITHUB_FP=$(ssh-keygen -lf "$GITHUB_PUB" | awk '{print $2}')
+    if ssh-add -l 2>/dev/null | grep -q "$GITHUB_FP"; then
+        echo "✅ GitHub 部署密钥已加载"
+    else
+        echo "⚠️  GitHub 部署密钥未加载：$GITHUB_KEY"
+    fi
+else
+    echo "⚠️  未找到 GitHub 公钥文件：$GITHUB_PUB"
 fi
 echo ""
 
@@ -51,6 +61,18 @@ echo ""
 
 # 步骤3：部署到 GitHub Pages
 echo "🌐 步骤 3/3: 部署到 GitHub Pages..."
+DEPLOY_REPO=$(grep -E '^[[:space:]]*repository:' _config.yml | head -n 1 | sed 's/^[[:space:]]*repository:[[:space:]]*//')
+if [[ "$DEPLOY_REPO" == ssh://git@ssh.github.com:443/* ]]; then
+    GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=8" git ls-remote "$DEPLOY_REPO" >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "❌ 无法通过 SSH 访问部署仓库：$DEPLOY_REPO"
+        if [ -f "$GITHUB_PUB" ]; then
+            echo "请把以下公钥添加到 GitHub -> Settings -> SSH and GPG keys："
+            cat "$GITHUB_PUB"
+        fi
+        exit 1
+    fi
+fi
 echo "📤 正在推送到远程仓库..."
 npx hexo deploy
 if [ $? -ne 0 ]; then
