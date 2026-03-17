@@ -133,6 +133,110 @@ a:hover {
   background: rgba(42, 157, 143, 0.08);
 }
 
+:root {
+  --hl-bg: #f6f8fc;
+  --hl-color: #1f2937;
+  --hltools-bg: #eaf0f7;
+  --hltools-color: #334155;
+  --hlnumber-bg: #eef3f9;
+  --hlnumber-color: #64748b;
+  --hlscrollbar-bg: #c2ccd8;
+  --hlexpand-bg: linear-gradient(180deg, rgba(246, 248, 252, 0.62), rgba(246, 248, 252, 0.95));
+}
+
+[data-theme='dark'] {
+  --hl-bg: #243041;
+  --hl-color: rgba(236, 243, 250, 0.92);
+  --hltools-bg: #2c3a4f;
+  --hltools-color: #d3deeb;
+  --hlnumber-bg: #243041;
+  --hlnumber-color: rgba(195, 210, 225, 0.58);
+  --hlscrollbar-bg: #3f536d;
+  --hlexpand-bg: linear-gradient(180deg, rgba(36, 48, 65, 0.64), rgba(36, 48, 65, 0.94));
+}
+
+.container figure.highlight {
+  border: 1px solid rgba(148, 163, 184, 0.34);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme='dark'] .container figure.highlight {
+  border-color: rgba(148, 163, 184, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.container .highlight-tools i:hover {
+  color: var(--brand-teal);
+}
+
+.container figure.highlight pre .comment {
+  color: #7b8798;
+}
+
+.container figure.highlight pre .variable,
+.container figure.highlight pre .attribute,
+.container figure.highlight pre .regexp,
+.container figure.highlight pre .ruby .constant,
+.container figure.highlight pre .xml .tag .title,
+.container figure.highlight pre .xml .pi,
+.container figure.highlight pre .xml .doctype,
+.container figure.highlight pre .html .doctype,
+.container figure.highlight pre .css .id,
+.container figure.highlight pre .tag .name,
+.container figure.highlight pre .css .class,
+.container figure.highlight pre .css .pseudo {
+  color: #be123c;
+}
+
+.container figure.highlight pre .number,
+.container figure.highlight pre .preprocessor,
+.container figure.highlight pre .literal,
+.container figure.highlight pre .params,
+.container figure.highlight pre .constant,
+.container figure.highlight pre .command {
+  color: #b45309;
+}
+
+.container figure.highlight pre .built_in,
+.container figure.highlight pre .tag .attr,
+.container figure.highlight pre .javascript .function {
+  color: #6d28d9;
+}
+
+.container figure.highlight pre .ruby .class .title,
+.container figure.highlight pre .css .rules .attribute,
+.container figure.highlight pre .string,
+.container figure.highlight pre .value,
+.container figure.highlight pre .inheritance,
+.container figure.highlight pre .header,
+.container figure.highlight pre .ruby .symbol,
+.container figure.highlight pre .xml .cdata,
+.container figure.highlight pre .special,
+.container figure.highlight pre .formula {
+  color: #0f766e;
+}
+
+.container figure.highlight pre .keyword,
+.container figure.highlight pre .title,
+.container figure.highlight pre .css .hexcolor {
+  color: #0f4c81;
+}
+
+.container figure.highlight pre .function,
+.container figure.highlight pre .python .decorator,
+.container figure.highlight pre .python .title,
+.container figure.highlight pre .ruby .function .title,
+.container figure.highlight pre .ruby .title .keyword,
+.container figure.highlight pre .perl .sub,
+.container figure.highlight pre .javascript .title,
+.container figure.highlight pre .coffeescript .title {
+  color: #075985;
+}
+
+[data-theme='dark'] .container figure.highlight pre .comment {
+  color: #9db0c6;
+}
+
 /* Responsive video container */
 .responsive-video-container {
   position: relative;
