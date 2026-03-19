@@ -18,6 +18,7 @@
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
         document.body.classList.add('site-motion-ready');
+        document.body.classList.remove('is-pjax-transitioning');
       });
     });
   }
@@ -25,6 +26,11 @@
   function resetPageMotion() {
     document.body.classList.remove('site-motion-ready');
     markPageReady();
+  }
+
+  function handlePjaxSend() {
+    document.body.classList.add('is-pjax-transitioning');
+    document.body.classList.remove('site-motion-ready');
   }
 
   function bindReveal() {
@@ -51,6 +57,7 @@
     });
 
     elements.forEach(function (element, index) {
+      element.classList.remove('is-visible');
       element.style.setProperty('--reveal-delay', Math.min(index, 10) * 55 + 'ms');
       revealObserver.observe(element);
     });
@@ -103,5 +110,6 @@
     initUiEnhance();
   }
 
+  document.addEventListener('pjax:send', handlePjaxSend);
   document.addEventListener('pjax:complete', initUiEnhance);
 })();
