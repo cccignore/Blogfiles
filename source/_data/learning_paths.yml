@@ -1,0 +1,44 @@
+- key: python-core
+  title: Python教程核心章节
+  series: Python教程核心章节
+  category: Python教程核心章节
+  path: /python-core/
+  secondary_path: /categories/技术教程/Python教程核心章节/
+  eyebrow: 系统复习
+  description: 把超长教程拆成更适合顺着读、回头翻和做阶段复习的 5 个核心章节。
+  accent: '#3d6f73'
+  gradient: 'linear-gradient(135deg, rgba(47,111,115,0.18), rgba(255,255,255,0.04))'
+  icon: fas fa-book-open-reader
+  checkpoints:
+    - 语法基础与数据类型
+    - 函数、模块与组织代码
+    - 调试、测试与常用内建模块
+- key: leetcode-hot100
+  title: LeetCode Hot100
+  series: LeetCode Hot100
+  category: LeetCode Hot100
+  path: /leetcode-hot100/
+  secondary_path: /categories/算法刷题/LeetCode-Hot100/
+  eyebrow: 题型路线
+  description: 不按难度零散刷题，而是按题型专题推进，把题感、模板和复盘过程慢慢积累起来。
+  accent: '#e38b5b'
+  gradient: 'linear-gradient(135deg, rgba(227,139,91,0.2), rgba(255,255,255,0.04))'
+  icon: fas fa-code
+  checkpoints:
+    - 哈希表、双指针、滑动窗口
+    - 普通数组、前缀和与矩阵
+    - 一边刷题一边整理 Python 写法
+- key: build-blog
+  title: 博客搭建与维护
+  category: 博客搭建
+  path: /build-blog/
+  secondary_path: /categories/技术教程/博客搭建/
+  eyebrow: 实战记录
+  description: 从 Hexo、Butterfly、评论系统到 SEO、部署与维护，把博客从能用慢慢搭到更舒服。
+  accent: '#6b5b95'
+  gradient: 'linear-gradient(135deg, rgba(107,91,149,0.18), rgba(255,255,255,0.04))'
+  icon: fas fa-screwdriver-wrench
+  checkpoints:
+    - 环境初始化与主题配置
+    - 评论、搜索与页面扩展
+    - SEO、订阅、部署与长期维护

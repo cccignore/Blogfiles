@@ -18,14 +18,19 @@ nav:
 
 menu:
   首页: / || fas fa-home
+  学习路径 || fas fa-compass:
+    Python核心章节: /python-core/ || fas fa-book-open
+    LeetCode Hot100: /leetcode-hot100/ || fas fa-code
+    博客搭建与维护: /build-blog/ || fas fa-screwdriver-wrench
+    资源导航: /navigation/ || fas fa-map-signs
+    随机逛逛: /random/ || fas fa-shuffle
   文章 || fas fa-book:
     归档: /archives/ || fas fa-archive
     标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
-    Python教程系列: /categories/技术教程/Python教程核心章节/ || fas fa-layer-group
-    LeetCode Hot100: /leetcode-hot100/ || fas fa-code
-    随机逛逛: /random/ || fas fa-shuffle
   友链: /link/ || fas fa-heart
+  关于: /about/ || fas fa-user-astronaut
+  订阅: /atom.xml || fas fa-rss
 
 # --------------------------------------
 # Code Blocks Settings
@@ -449,7 +454,7 @@ copy:
 
 # Need to install the hexo-wordcount plugin
 wordcount:
-  enable: false
+  enable: true
   # Display the word count of the article in post meta
   post_wordcount: true
   # Display the time to read the article in post meta
@@ -495,7 +500,7 @@ search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
   use: local_search
-  placeholder: 搜索文章标题或关键词
+  placeholder: 搜索系列、题解或关键词
 
   # Algolia Search
   algolia_search:
@@ -1057,6 +1062,7 @@ inject:
   head:
     # 引入你的自定义样式
     - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="/css/site-upgrades.css">
     # 【新增】在这里引入 Pace 的主题样式
     - <link rel="stylesheet" href="/css/fill-left.css">
     # 引入 live2d 看板娘
@@ -1066,6 +1072,7 @@ inject:
     - <script src="/js/sakuraPlus.js"></script>
     - <script src="/js/daily-quote.js"></script>
     - <script src="/js/footer-enhance.js"></script>
+    - <script src="/js/ui-enhance.js"></script>
     # aplayer音乐已删除
 
 # CDN Settings

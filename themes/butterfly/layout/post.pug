@@ -10,6 +10,7 @@ block content
         include includes/post/outdate-notice.pug
       else
         !=page.content
+    include includes/post/series-navigation.pug
     include includes/post/post-copyright.pug
     .tag_share
       if (page.tags.length > 0 && theme.post_meta.post.tags)

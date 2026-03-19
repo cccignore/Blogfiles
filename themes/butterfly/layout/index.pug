@@ -1,5 +1,9 @@
 extends includes/layout.pug
 
 block content
+  include ./includes/home-learning-paths.pug
+  include ./includes/home-quick-links.pug
+  +homeLearningPaths
+  +homeQuickLinks
   include ./includes/mixins/indexPostUI.pug
   +indexPostUI

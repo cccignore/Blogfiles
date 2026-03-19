@@ -5,8 +5,14 @@
 # Site
 title: Welcome to Enoch's Blog!
 subtitle: ''
-description: ''
+description: 一个持续更新的中文学习博客，主要记录 Python、LeetCode、Hexo/Butterfly 博客搭建与技术学习过程。
 keywords:
+  - Python
+  - LeetCode Hot100
+  - Hexo
+  - Butterfly
+  - 博客搭建
+  - 学习笔记
 author: Enoch
 language: zh-CN
 timezone: Asia/Shanghai
@@ -121,6 +127,21 @@ search:
   path: search.xml
   field: post
   content: true
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  content: true
+  content_limit: 2000
+
+sitemap:
+  path: sitemap.xml
+  tags: true
+  categories: true
+
+baidusitemap:
+  path: baidusitemap.xml
 
 # 看板娘配置
 live2d:

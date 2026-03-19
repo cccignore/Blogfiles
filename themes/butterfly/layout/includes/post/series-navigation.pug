@@ -1,0 +1,35 @@
+if page.series
+  - const pathConfig = (site.data.learning_paths || []).find(item => item.series === page.series)
+  - const seriesPosts = site.posts.data.filter(post => post.series === page.series).slice().sort((a, b) => a.date - b.date)
+  - const currentIndex = seriesPosts.findIndex(item => item.path === page.path)
+  - const prevPost = currentIndex > 0 ? seriesPosts[currentIndex - 1] : null
+  - const nextPost = currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null
+  if currentIndex !== -1
+    section.series-navigation(style=pathConfig ? `--series-accent: ${pathConfig.accent}; --series-gradient: ${pathConfig.gradient};` : '')
+      .series-navigation__hero
+        .series-navigation__meta
+          span.series-navigation__eyebrow Series Guide
+          h2.series-navigation__title= page.series
+          p.series-navigation__desc= pathConfig && pathConfig.description ? pathConfig.description : '这是一组适合顺着读的系列文章，建议按顺序推进。'
+        .series-navigation__progress
+          span.series-navigation__progress-label 当前进度
+          strong #{currentIndex + 1} / #{seriesPosts.length}
+      .series-navigation__actions
+        if pathConfig
+          a.series-navigation__action.series-navigation__action--overview(href=url_for(pathConfig.path))
+            span 查看专题总览
+            strong= pathConfig.title
+        if prevPost
+          a.series-navigation__action(href=url_for(prevPost.path))
+            span 上一篇
+            strong= prevPost.title
+        if nextPost
+          a.series-navigation__action(href=url_for(nextPost.path))
+            span 下一篇
+            strong= nextPost.title
+      .series-navigation__track
+        each item, index in seriesPosts
+          - const currentClass = index === currentIndex ? 'is-current' : ''
+          a.series-navigation__track-item(class=currentClass href=url_for(item.path))
+            span.series-navigation__track-index= index + 1
+            span.series-navigation__track-title= item.title

@@ -1,0 +1,41 @@
+mixin homeLearningPaths()
+  - const paths = site.data.learning_paths || []
+  if globalPageType === 'home' && paths.length
+    section.home-learning-map
+      .home-panel-head
+        span.home-panel-head__eyebrow Learning Paths
+        h2.home-panel-head__title 从零散文章切到可复习的学习路径
+        p.home-panel-head__desc 把正在长期维护的专题直接摆到首页，方便第一次进站的读者快速找到入口，也让老读者能顺着系列继续读下去。
+      .learning-card-grid
+        each item in paths
+          - const posts = site.posts.data.filter(post => item.series ? post.series === item.series : post.categories && post.categories.data.some(category => category.name === item.category)).slice().sort((a, b) => b.date - a.date)
+          - const latestPost = posts[0]
+          article.learning-card(style=`--path-accent: ${item.accent}; --path-gradient: ${item.gradient};`)
+            .learning-card__glow
+            .learning-card__content
+              .learning-card__header
+                span.learning-card__eyebrow= item.eyebrow
+                if item.icon
+                  i(class=`learning-card__icon ${item.icon}`)
+              h3.learning-card__title= item.title
+              p.learning-card__desc= item.description
+              .learning-card__stats
+                span
+                  strong= posts.length
+                  |  篇内容
+                if latestPost
+                  span 最近更新 #{date(latestPost.updated || latestPost.date, config.date_format)}
+                else
+                  span 持续更新中
+              if item.checkpoints && item.checkpoints.length
+                ul.learning-card__checkpoints
+                  each checkpoint in item.checkpoints
+                    li= checkpoint
+              if latestPost
+                .learning-card__latest
+                  span.learning-card__label 最近入口
+                  a.learning-card__latest-link(href=url_for(latestPost.path))= latestPost.title
+              .learning-card__actions
+                a.button--animated(href=url_for(item.path)) 进入专题
+                if item.secondary_path
+                  a.button--ghost(href=url_for(item.secondary_path)) 看归档

@@ -1,5 +1,5 @@
-- class_name: 友情鏈接
-  class_desc: 那些人，那些事
+- class_name: 朋友们
+  class_desc: 常来常往、彼此更新时会想起去逛一逛的站点。
   link_list:
     - name: cookiesky
       link: https://cookiesky.cn/
@@ -9,24 +9,51 @@
       link: http://www.argcxiang.top
       avatar: https://cdn.jsdelivr.net/gh/plxj6666/Pictures/src/touxiang.jpg
       descr: Think twice, code once.
-    - name: wwxdsg的个人博客
+    - name: wwxdsg 的个人博客
       link: https://okelekaf01-cmd.github.io/
       avatar: https://github.com/okelekaf01-cmd.png
       descr: 记录技术学习与生活思考的个人空间
+    - name: 安和鱼
+      link: https://blog.anheyu.com/
+      avatar: https://blog.anheyu.com/static/img/logo.svg
+      descr: 持续分享前端、开发与生活内容
 
-- class_name: 網站
-  class_desc: 值得推薦的網站
+- class_name: 推荐站点
+  class_desc: 偶尔去这些地方看看设计、内容组织和写作节奏，容易获得灵感。
   link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 視頻網站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中國最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+    - name: Butterfly 文档
+      link: https://butterfly.js.org/
+      avatar: https://butterfly.js.org/img/butterfly-icon.png
+      descr: 主题官方文档与展示页
+    - name: Heo Blog
+      link: https://blog.zhheo.com/
+      avatar: https://www.google.com/s2/favicons?sz=128&domain_url=https://blog.zhheo.com/
+      descr: 很强的个人站产品化思路
+    - name: Akilar の糖果屋
+      link: https://akilar.top/
+      avatar: https://www.google.com/s2/favicons?sz=128&domain_url=https://akilar.top/
+      descr: Butterfly 魔改灵感库
+    - name: 贰猹的小窝
+      link: https://noionion.top/
+      avatar: https://noionion.top/img/favicon.png
+      descr: 阅读体验和页面结构都很值得学习
 
+- class_name: 常逛资源
+  class_desc: 平时写文章、查资料和整理学习路线时会高频打开的地方。
+  link_list:
+    - name: MDN Web Docs
+      link: https://developer.mozilla.org/
+      avatar: https://developer.mozilla.org/favicon.svg
+      descr: 前端与 Web API 的权威资料库
+    - name: Python Docs
+      link: https://docs.python.org/zh-cn/3/
+      avatar: https://www.python.org/static/favicon.ico
+      descr: Python 官方文档中文版入口
+    - name: Hexo Docs
+      link: https://hexo.io/zh-cn/docs/
+      avatar: https://hexo.io/favicon.ico
+      descr: 主题、插件与配置时最常查的官方文档
+    - name: LeetCode
+      link: https://leetcode.cn/
+      avatar: https://leetcode.cn/favicon.ico
+      descr: 刷题、回顾和专题推进的主阵地

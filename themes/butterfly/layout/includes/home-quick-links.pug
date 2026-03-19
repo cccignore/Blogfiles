@@ -1,0 +1,12 @@
+mixin homeQuickLinks()
+  if globalPageType === 'home'
+    section.home-quick-links
+      a.quick-link-card(href=url_for('/navigation/'))
+        span.quick-link-card__label 资源导航
+        strong 把常用文档、工具和站内入口集中到一页
+      a.quick-link-card(href=url_for('/about/'))
+        span.quick-link-card__label About
+        strong 了解这个博客在写什么、适合怎么读
+      a.quick-link-card(href=url_for('/atom.xml'))
+        span.quick-link-card__label RSS 订阅
+        strong 用订阅器跟进更新，不错过新文章
