@@ -22,6 +22,8 @@ menu:
     归档: /archives/ || fas fa-archive
     标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
+    Python教程系列: /categories/技术教程/Python教程核心章节/ || fas fa-layer-group
+    LeetCode Hot100: /leetcode-hot100/ || fas fa-code
     随机逛逛: /random/ || fas fa-shuffle
   友链: /link/ || fas fa-heart
 

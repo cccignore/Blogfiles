@@ -105,6 +105,17 @@ deploy:
   repository: ssh://git@ssh.github.com:443/cccignore/cccignore.github.io.git
   branch: main
 
+hide_posts:
+  enable: true
+  noindex: true
+  allowlist_generators:
+    - archive
+    - category
+    - tag
+  blocklist_generators:
+    - index
+    - feed
+
 # Local search index
 search:
   path: search.xml
