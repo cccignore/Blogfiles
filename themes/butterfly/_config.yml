@@ -553,7 +553,7 @@ comments:
   # Leave it empty if you don't need comments
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
   # Format of two comments system : Disqus,Waline
-  use: Giscus
+  use: Waline
   # Display the comment name next to the button
   text: true
   # Lazyload: The comment system will be load when comment element enters the browser's viewport.
@@ -605,6 +605,21 @@ valine:
   # Use Valine visitor count as the page view count
   visitor: false
   option:
+
+# Waline
+# https://waline.js.org/
+waline:
+  serverURL: https://enoch-waline.vercel.app
+  pageview: false
+  option:
+    lang: zh-CN
+    meta: [nick, mail, link]
+    requiredMeta: [nick, mail]
+    pageSize: 10
+    login: enable
+    wordLimit: 500
+    search: false
+    reaction: false
 
 
 
